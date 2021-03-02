@@ -25,6 +25,12 @@ func insert() {
 
 	_, err = db.Exec(sqlStatement)
 
+	sqlStatement = `
+	INSERT INTO users ("age", "first_name", "last_name","email")
+	VALUES ($1,$2,$3,$4)`
+
+	_, err = db.Exec(sqlStatement, 21, "abhi", "dhok", "abhi@gmail.com")
+
 	if err != nil {
 		fmt.Println(err)
 	} else {
